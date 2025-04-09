@@ -1,7 +1,7 @@
 /**
  * Creates a Maze made up of MazeCells
- * @author Ms. Namasivayam
- * @version 03/04/2022
+ * @author Ms. Namasivayam & Kai Mawakana
+ * @version 04/08/2025
  */
 
 import java.io.File;
@@ -146,7 +146,16 @@ public class Maze {
      * @return boolean true/false
      */
     public boolean isValidCell(int row, int col) {
-        // TODO: Complete this function
-        return true;
+
+        // Ensuring cell is in-bounds
+        if (row < 0 || row >= numRows || col < 0 || col >= numCols)
+        {
+            return false;
+        }
+
+        MazeCell cell = mazeGrid[row][col];
+
+        // Making sure cell is not a wall and has not been explored yet
+        return !cell.isWall() && !cell.isExplored();
     }
 }
